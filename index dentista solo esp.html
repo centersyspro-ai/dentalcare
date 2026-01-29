@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentalCare Pro | Odontología Avanzada</title>
+    <style>
+        /* Variables de colores dentales */
+        :root {
+            --azul-dental: #1a73e8;
+            --azul-claro: #e8f4fe;
+            --blanco: #ffffff;
+            --blanco-hueso: #f9f9f9;
+            --verde-frescura: #34a853;
+            --gris-profesional: #5f6368;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco-hueso);
+            color: var(--gris-profesional);
+            line-height: 1.6;
+        }
+
+        /* Header y navegación */
+        header {
+            background: var(--blanco);
+            box-shadow: 0 2px 10px var(--sombra);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            color: var(--azul-dental);
+            font-size: 2.5rem;
+        }
+
+        .logo h1 {
+            color: var(--azul-dental);
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: var(--verde-frescura);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gris-profesional);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: var(--azul-dental);
+            background: var(--azul-claro);
+        }
+
+        .cta-button {
+            background: var(--azul-dental);
+            color: white !important;
+            padding: 0.8rem 2rem !important;
+            border-radius: 25px;
+            transition: all 0.3s !important;
+        }
+
+        .cta-button:hover {
+            background: #0d62d9;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--blanco) 100%);
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            color: var(--azul-dental);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--gris-profesional);
+        }
+
+        /* Servicios */
+        .servicios {
+            padding: 5rem 2rem;
+            background: var(--blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--azul-dental);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .servicios-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            background: var(--blanco-hueso);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--sombra);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .servicio-icon {
+            font-size: 3rem;
+            color: var(--azul-dental);
+            margin-bottom: 1rem;
+        }
+
+        /* Equipo */
+        .equipo {
+            padding: 5rem 2rem;
+            background: var(--azul-claro);
+        }
+
+        .equipo-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .doctor-card {
+            background: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--sombra);
+            text-align: center;
+        }
+
+        .doctor-img {
+            height: 200px;
+            background: linear-gradient(45deg, var(--azul-dental), var(--verde-frescura));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .doctor-info {
+            padding: 1.5rem;
+        }
+
+        /* Tecnología */
+        .tecnologia {
+            padding: 5rem 2rem;
+            background: var(--blanco);
+        }
+
+        .tech-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--verde-frescura);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonios */
+        .testimonios {
+            padding: 5rem 2rem;
+            background: var(--azul-claro);
+        }
+
+        .testimonios-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .testimonio {
+            background: var(--blanco);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--sombra);
+            position: relative;
+        }
+
+        .testimonio::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--azul-dental);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        /* Contacto */
+        .contacto {
+            padding: 5rem 2rem;
+            background: var(--blanco);
+        }
+
+        .contacto-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            background: var(--azul-dental);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--azul-dental);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/523331234567" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-tooth logo-icon"></i>
+                <h1>Dental<span>Care</span> Pro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#contacto" class="cta-button">Agendar Cita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h2>Sonríe con Confianza</h2>
+        <p>Odontología avanzada con tecnología de punta y un equipo de especialistas comprometidos con tu salud bucal.</p>
+        <a href="#contacto" class="cta-button">Solicitar Primera Consulta</a>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <i class="fas fa-smile servicio-icon"></i>
+                <h3>Blanqueamiento Dental</h3>
+                <p>Resultados visibles desde la primera sesión con nuestra tecnología LED avanzada.</p>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-tooth servicio-icon"></i>
+                <h3>Implantes Dentales</h3>
+                <p>Recupera tu sonrisa completa con implantes de última generación.</p>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-teeth servicio-icon"></i>
+                <h3>Ortodoncia Invisible</h3>
+                <p>Endereza tus dientes discretamente con alineadores transparentes.</p>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-stethoscope servicio-icon"></i>
+                <h3>Revisión Completa</h3>
+                <p>Diagnóstico preciso con radiografía digital y scanner intraoral 3D.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="equipo" id="equipo">
+        <h2 class="section-title">Nuestro Equipo</h2>
+        <div class="equipo-grid">
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="doctor-info">
+                    <h3>Dra. Ana Rodríguez</h3>
+                    <p>Especialista en Implantología</p>
+                    <p>15 años de experiencia</p>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. Carlos Méndez</h3>
+                    <p>Ortodoncista Certificado</p>
+                    <p>Miembro de la AAO</p>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="doctor-info">
+                    <h3>Dra. Laura Sánchez</h3>
+                    <p>Endodoncista</p>
+                    <p>Especialista en Microcirugía</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnología -->
+    <section class="tecnologia" id="tecnologia">
+        <h2 class="section-title">Tecnología de Vanguardia</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fas fa-x-ray tech-icon"></i>
+                <h3>Radiografía Digital</h3>
+                <p>90% menos radiación que los sistemas convencionales.</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-camera tech-icon"></i>
+                <h3>Scanner Intraoral 3D</h3>
+                <p>Impresiones digitales sin material desagradable.</p>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-microscope tech-icon"></i>
+                <h3>Microscopio Dental</h3>
+                <p>Precisión milimétrica en tratamientos de conducto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <h2 class="section-title">Lo que Dicen Nuestros Pacientes</h2>
+        <div class="testimonios-container">
+            <div class="testimonio">
+                <p>"Después de años de sentirme incómoda con mi sonrisa, el equipo de DentalCare Pro me devolvió la confianza. ¡Gracias!"</p>
+                <h4>- María González</h4>
+            </div>
+            <div class="testimonio">
+                <p>"El tratamiento con Invisalign fue increíble. Nadie notó que estaba usando alineadores y los resultados son perfectos."</p>
+                <h4>- Roberto Jiménez</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <h2 class="section-title">Agenda tu Cita</h2>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Av. Dental 123, Col. Salud<br>Guadalajara, Jalisco</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>33 3123 4567</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Horario</h3>
+                        <p>Lun-Vie: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="formulario">
+                <div style="background: var(--azul-claro); padding: 2rem; border-radius: 10px;">
+                    <h3 style="color: var(--azul-dental); margin-bottom: 1rem;">Solicitar Consulta</h3>
+                    <p style="margin-bottom: 1.5rem;">Llámanos o completa nuestro formulario en línea.</p>
+                    <a href="tel:3331234567" class="cta-button" style="display: inline-block; text-decoration: none;">
+                        <i class="fas fa-phone"></i> Llamar Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>DentalCare Pro</h3>
+                <p>Salud bucal con excelencia y tecnología.</p>
+            </div>
+            <div>
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="#inicio" style="color: white;">Inicio</a></p>
+                <p><a href="#servicios" style="color: white;">Servicios</a></p>
+                <p><a href="#equipo" style="color: white;">Equipo</a></p>
+            </div>
+            <div>
+                <h3>Redes Sociales</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; opacity: 0.8;">© 2024 DentalCare Pro. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Cambiar color del header al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
